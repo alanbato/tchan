@@ -22,6 +22,7 @@ services:
       # We require the compiled assets to know what urls to generate.
       - assets:/opt/app/assets
     command: app
+
   worker:
     build: .
     volumes:

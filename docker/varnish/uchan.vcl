@@ -32,9 +32,9 @@ sub vcl_recv {
   # Forward the ip. If you don't run varnish as the first server, for example if you have uchan proxied by some other
   # front end server, then you need to enable this.
   # UNCOMMENT BELOW
-  #if (req.restarts == 0) {
-  #  set req.http.X-Forwarded-For = req.http.X-Forwarded-For + ", " + client.ip;
-  #}
+  if (req.restarts == 0) {
+    set req.http.X-Forwarded-For = req.http.X-Forwarded-For + ", " + client.ip;
+  }
 
   # Only cache GET or HEAD requests. This makes sure the POST requests are always passed.
   if (req.method != "GET" && req.method != "HEAD") {

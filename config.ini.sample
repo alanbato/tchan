@@ -55,7 +55,7 @@ local_cdn_web_path = http://localhost/media/
 
 [celery]
 # Celery broker url
-broker_url = amqp://queue/
+broker_url = amqp://7e3NYqp_:lfNbW2BozyQ-Uu_iw4BhguIcPkpeptC8@brown-scabious-736.bigwig.lshift.net:10426/KHSTU8BIWcoO
 
 [varnish]
 # Enable to purge the varnish cache

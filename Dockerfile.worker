@@ -5,13 +5,13 @@ FROM alpine:3.6
 # Some packages required for compiling some of the python libs, plus uwsgi.
 RUN apk update &&\
     apk add python3-dev \
-            uwsgi uwsgi-python3 \
-            build-base bash \
-            libffi-dev \
-            libjpeg-turbo-dev \
-            zlib-dev \
-            postgresql-dev postgresql-client \
-            nodejs nodejs-npm
+    uwsgi uwsgi-python3 \
+    build-base bash \
+    libffi-dev \
+    libjpeg-turbo-dev \
+    zlib-dev \
+    postgresql-dev postgresql-client \
+    nodejs nodejs-npm
 
 ADD requirements /opt/app/requirements
 WORKDIR /opt/app
@@ -25,3 +25,4 @@ RUN addgroup -S uchan && adduser -u 1001 -S uchan uchan && \
 ADD . /opt/app
 
 ENTRYPOINT ["./docker-entrypoint.sh"]
+CMD ["worker"]
